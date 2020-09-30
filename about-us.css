@@ -1,0 +1,23 @@
+* {
+    background-color: lightblue;
+}
+
+.about-us-grid {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 30px 30px 500px;
+    grid-gap: 20px;
+    /* border: 1px solid black; */
+}
+
+.about-us-title {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    font-size: 24px;
+}
+
+.profile-pic {
+    width: 50%;
+    height: 60%;
+}
