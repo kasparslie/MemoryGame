@@ -1,17 +1,6 @@
 
-let cardSelection = [1, 1, 2, 2, 3, 3,];
 
-const compareCards = () =>
-if (cardSelection[i] == cardSelection[i]){
-    function(trueValue) {
-        Playedcards = 
-        else return startposition 
-    }
-}
-
-
-/-------------------------
-const computerChoise = (computerInput) => {
+const gen= (computerInput) => {
     computerInput = Math.floor(Math.random(computerInput)*3)+1
     randomCard = computerInput
 }
