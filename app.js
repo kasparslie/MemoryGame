@@ -33,7 +33,6 @@ function createCard(imageUrl) {
     cardImg.classList.add("card-img");
 
     cardImg.style.backgroundImage = `url(${imageUrl})`;
-    
     cardImg.innerHTML = 'TEST'
     card.appendChild(cardImg);
 }
