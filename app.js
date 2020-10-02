@@ -5,43 +5,37 @@
 
 const cardImages = [
     {
-        id: 11,
-        name: "books",
-        image: "https://www.flaticon.com/premium-icon/icons/svg/3038/3038168.svg"
+
+        id: 1,
+        name: "bwifi",
+        image: "https://i.ibb.co/0hRV0Gc/b8Km1.png"
     },
     {
-        id: 11,
-        name: "pointer",
-        image: "https://www.flaticon.com/svg/static/icons/svg/3533/3533001.svg"
+        id: 2,
+        name: "cloud",
+        image: "https://i.ibb.co/kxqnpGZ/resized-3-ZGvh.png"
     },
     {
-        id: 22,
-        name: "readingBook",
-        image: "https://www.flaticon.com/svg/static/icons/svg/3068/3068380.svg"
+        id: 3,
+        name: "footsteps",
+        image: "https://i.ibb.co/VNZbB7K/resize-icon4-svg.png"
     },
     {
-        id: 22,
-        name: "books",
-        image: "https://www.flaticon.com/premium-icon/icons/svg/3038/3038168.svg"
+        id: 4,
+        name: "dialog",
+        image: "https://i.ibb.co/MBXQS2K/resize-dialog.png"
     },
     {
-        id: 33,
-        name: "pointer",
-        image: "https://www.flaticon.com/svg/static/icons/svg/3533/3533001.svg"
+        id: 5,
+        name: "feather",
+        image: "https://i.ibb.co/1rq8rx0/resize-feather.png"
     },
     {
-        id: 33,
-        name: "readingBook",
-        image: "https://www.flaticon.com/svg/static/icons/svg/3068/3068380.svg"
-    }
+        id: 6,
+        name: "finger",
+        image: "https://i.ibb.co/9GMS5z0/resize-finger.png"
+    }];
 
-
-
-
-
-
-
-];
 
 // This is a variable pointing to the card container in HTML
 const cardsContainer = document.querySelector(".container")
