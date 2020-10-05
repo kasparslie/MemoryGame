@@ -1,8 +1,16 @@
-.navbar {
+header {
+    background-color: blue;
     width: 100%;
-    background-color: blue;
-
+    height: 85px;
+    position: fixed;
 }
-.navbar .navbar-light {
-    background-color: blue;
+h1 {
+    text-align: center;
+    margin-top: 0%;
+    margin-bottom: 15%;
+    font-size: 32pt;
+    justify-content: center;
+    padding-top: 25px;
+   font-family: 'Lobster', cursive; font-family: 'Lobster', cursive;
+    color: cornsilk;
 }

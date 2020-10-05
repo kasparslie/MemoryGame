@@ -1,91 +1,105 @@
-// This is the array containing the card details
-// "id" will be used to compare the two cards
-// "name" defines the card itself, ex: cat, book, plane, etc.
-// "image" points to the JPG/PNG/SVG
+// The DOMContentLoaded event fires when the initial HTML document has been completely
+// loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+document.addEventListener("DOMContentLoaded", function () {
 
-const cardImages = [
-    {
-
-        id: 1,
-        name: "bwifi",
-        image: "https://i.ibb.co/0hRV0Gc/b8Km1.png"
-    },
-    {
-        id: 2,
-        name: "cloud",
-        image: "https://i.ibb.co/kxqnpGZ/resized-3-ZGvh.png"
-    },
-    {
-        id: 3,
-        name: "footsteps",
-        image: "https://i.ibb.co/VNZbB7K/resize-icon4-svg.png"
-    },
-    {
-        id: 4,
-        name: "dialog",
-        image: "https://i.ibb.co/MBXQS2K/resize-dialog.png"
-    },
-    {
-        id: 5,
-        name: "feather",
-        image: "https://i.ibb.co/1rq8rx0/resize-feather.png"
-    },
-    {
-        id: 6,
-        name: "finger",
-        image: "https://i.ibb.co/9GMS5z0/resize-finger.png"
-    }];
-
-
-// This is a variable pointing to the card container in HTML
-const cardsContainer = document.querySelector(".container")
-
-// This is the function that will add the DIV card elements to the DOM
-function createCard(imageUrl, id) {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    cardsContainer.appendChild(card);
-    
-    const cardImg = document.createElement("div");
-    cardImg.classList.add("card-img");
-    cardImg.setAttribute("id", id);
-    cardImg.style.backgroundImage = `url(${imageUrl})`;
-    card.appendChild(cardImg);
-
-    
-}
-
-// This is the loop that will create the DIVs by using the function
-  for (let i = 0; i < cardImages.length; i++) {
-    createCard(cardImages[i].image, cardImages[i].id);
-  }
-
-  // When we have the cards then we can start working on the values to be compared later on
-
-// After we can work on the click funcionallity, first the 1st click
-
-// cardImg.addEventListener("click", function(){
-//     console.log(cardImg)
-// })
-
-const setOfCards = document.querySelectorAll('.card-img');
-
-//console.log(typeof(setOfCards))
-
-
-function asd(){
-    for (let i=0;i<setOfCards.length;i++) {
-        setOfCards[i].addEventListener("click", function() {
-       
-        //console.log(`Card is ${setOfCards[i].id}`)
-        var cardClick1 = (`Card is ${setOfCards[i].id}`)
-        console.log(cardClick1)
-            })
+    // This is the array of cards:
+    const cardArray = [
+        {
+            name: "Cat 1",
+            img: "./pictures/kat1.jpg"
+        },
+        {
+            name: "Cat 1",
+            img: "./pictures/kat1.jpg"
+        },
+        {
+            name: "Cat 2",
+            img: "./pictures/kat2.jpg"
+        },
+        {
+            name: "Cat 2",
+            img: "./pictures/kat2.jpg"
+        },
+        {
+            name: "Cat 3",
+            img: "./pictures/kat3.jpg"
+        },
+        {
+            name: "Cat 3",
+            img: "./pictures/kat3.jpg"
+        },
+        {
+            name: "Cat 4",
+            img: "./pictures/kat4.jpg"
+        },
+        {
+            name: "Cat 4",
+            img: "./pictures/kat4.jpg"
         }
-}
+    ]
+
+    // This will randomize the array of objects
+    cardArray.sort(() => 0.5 - Math.random())
 
 
+    const grid = document.querySelector(".container")
+    
+    //const resultDisplay = document.querySelector("#result")
+    
+    var cardsChosen = []
+    var cardsChosenId = []
+    var cardsWon = []
 
-// console.log(cardClick1)
-// When the 1st click is working, we work on the 2nd click and the comparision.
+    function createBoard() {
+        for (let i = 0; i < cardArray.length; i++) {
 
+            console.log(cardArray.length)
+
+            var card = document.createElement("img")
+            card.setAttribute("src", "./pictures/backside.jpg")
+            card.setAttribute("id", i)
+            //card.addEventListener("click", flipCard)
+            grid.appendChild(card)
+
+            console.log(card)
+        }
+    }
+ /* 
+    //Check for a matching pair
+    function checkForMatch(){
+        var cards = document.querySelectorAll("img")
+        const optionOneId = cardsChosenId[0]
+        const optionTwoId = cardsChosenId[1]
+        if (cardsChosen[0] === cardsChosen[1]) {
+            alert("You got a match!")
+            cards[optionOneId].setAttribute("src", "resized/white.jpg")
+            cards[optionTwoId].setAttribute("src", "resized/white.jpg")
+            cardsWon.push(cardsChosen)
+        }else{
+            cards[optionOneId].setAttribute("src", "resized/blank.jpg")
+            cards[optionTwoId].setAttribute("src", "resized/blank.jpg")
+            alert("No match. Try again.")
+        }
+        cardsChosen = []
+        cardsChosenId = []
+        resultDisplay.textContent = cardsWon.length
+        if (cardsWon.length === cardArray.length/2) {
+            resultDisplay.textContent = "Congratulations! You've found all matches!"
+        }
+    }
+
+    //Flip the cards
+    function flipCard() {
+        var cardId = this.getAttribute("id")
+        cardsChosen.push(cardArray[cardId].name)
+        cardsChosenId.push(cardId)
+        this.setAttribute("src", cardArray[cardId].img)
+        if (cardsChosen.length === 2){
+            //this one gives it a slight delay so it doesn't happen instantly
+            setTimeout(checkForMatch, 500)
+        }
+        console.log(cardsChosen)
+    }
+*/
+    createBoard() 
+})
