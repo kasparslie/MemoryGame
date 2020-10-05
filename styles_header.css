@@ -1,0 +1,8 @@
+.navbar {
+    width: 100%;
+    background-color: blue;
+
+}
+.navbar .navbar-light {
+    background-color: blue;
+}

@@ -2,13 +2,13 @@ body{
     background-color: red;  
     margin: 0;  
 }
-header{
+/*header{
     display: flex;
     background-color: blue;
     color: white;
     justify-content: center;
     align-items: flex-start;
-}
+} */
 section{
     display: flex;
     flex-direction: column;
