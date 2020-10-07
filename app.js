@@ -1,3 +1,9 @@
+// This will import the player name from front-page
+//import {playerName} from "./front-page.js"
+console.log("fffffffffff")
+//console.log(playerName)
+
+
 // The DOMContentLoaded event fires when the initial HTML document has been completely
 // loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
 document.addEventListener("DOMContentLoaded", function () {
@@ -5,36 +11,44 @@ document.addEventListener("DOMContentLoaded", function () {
     // This is the array of cards:
     const cardArray = [
         {
-            name: "Cat 1",
-            img: "./pictures/kat1.jpg"
+            name: "Cat1",
+            img: "./pictures/kat1.jpg",
+            img2: "./pictures/backside.jpg"
         },
         {
-            name: "Cat 1",
-            img: "./pictures/kat1.jpg"
+            name: "Cat1",
+            img: "./pictures/kat1.jpg",
+            img2: "./pictures/backside.jpg"
         },
         {
-            name: "Cat 2",
-            img: "./pictures/kat2.jpg"
+            name: "Cat2",
+            img: "./pictures/kat2.jpg",
+            img2: "./pictures/backside.jpg"
         },
         {
-            name: "Cat 2",
-            img: "./pictures/kat2.jpg"
+            name: "Cat2",
+            img: "./pictures/kat2.jpg",
+            img2: "./pictures/backside.jpg"
         },
         {
-            name: "Cat 3",
-            img: "./pictures/kat3.jpg"
+            name: "Cat3",
+            img: "./pictures/kat3.jpg",
+            img2: "./pictures/backside.jpg"
         },
         {
-            name: "Cat 3",
-            img: "./pictures/kat3.jpg"
+            name: "Cat3",
+            img: "./pictures/kat3.jpg",
+            img2: "./pictures/backside.jpg"
         },
         {
-            name: "Cat 4",
-            img: "./pictures/kat4.jpg"
+            name: "Cat4",
+            img: "./pictures/kat4.jpg",
+            img2: "./pictures/backside.jpg"
         },
         {
-            name: "Cat 4",
-            img: "./pictures/kat4.jpg"
+            name: "Cat4",
+            img: "./pictures/kat4.jpg",
+            img2: "./pictures/backside.jpg"
         }
     ]
 
@@ -43,50 +57,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     const grid = document.querySelector(".container")
-    
-    //const resultDisplay = document.querySelector("#result")
+    const resultDisplay = document.querySelector("#result")
+    let playerNameBox = document.querySelector("#player")
     
     var cardsChosen = []
     var cardsChosenId = []
-    var cardsWon = []
+    var points = 0
 
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
-
-            console.log(cardArray.length)
-
             var card = document.createElement("img")
             card.setAttribute("src", "./pictures/backside.jpg")
             card.setAttribute("id", i)
-            //card.addEventListener("click", flipCard)
+            card.addEventListener("click", flipCard)
             grid.appendChild(card)
 
-            console.log(card)
+            playerNameBox.textContent = localStorage.playerName;
         }
     }
- /* 
-    //Check for a matching pair
-    function checkForMatch(){
-        var cards = document.querySelectorAll("img")
-        const optionOneId = cardsChosenId[0]
-        const optionTwoId = cardsChosenId[1]
-        if (cardsChosen[0] === cardsChosen[1]) {
-            alert("You got a match!")
-            cards[optionOneId].setAttribute("src", "resized/white.jpg")
-            cards[optionTwoId].setAttribute("src", "resized/white.jpg")
-            cardsWon.push(cardsChosen)
-        }else{
-            cards[optionOneId].setAttribute("src", "resized/blank.jpg")
-            cards[optionTwoId].setAttribute("src", "resized/blank.jpg")
-            alert("No match. Try again.")
-        }
-        cardsChosen = []
-        cardsChosenId = []
-        resultDisplay.textContent = cardsWon.length
-        if (cardsWon.length === cardArray.length/2) {
-            resultDisplay.textContent = "Congratulations! You've found all matches!"
-        }
-    }
+
+    //let numOfcard = 6
+    //let difficultyLevel = "easy"
 
     //Flip the cards
     function flipCard() {
@@ -95,11 +86,35 @@ document.addEventListener("DOMContentLoaded", function () {
         cardsChosenId.push(cardId)
         this.setAttribute("src", cardArray[cardId].img)
         if (cardsChosen.length === 2){
-            //this one gives it a slight delay so it doesn't happen instantly
-            setTimeout(checkForMatch, 500)
+             //this one gives it a slight delay so it doesn't happen instantly
+             setTimeout(checkForMatch, 500)
         }
-        console.log(cardsChosen)
     }
-*/
+    
+    //Check for a matching pair
+    function checkForMatch(){
+        var cards = document.querySelectorAll("img")
+
+        const optionOneId = cardsChosenId[0]
+        const optionTwoId = cardsChosenId[1]
+
+        if (cardsChosen[0] === cardsChosen[1]) {
+            points += 1
+        }else{
+            cards[optionOneId].setAttribute("src", "pictures/backside.jpg")
+            cards[optionTwoId].setAttribute("src", "pictures/backside.jpg")
+        }
+        //this resets both arrays (resets the turn)
+        cardsChosen = []
+        cardsChosenId = []
+        resultDisplay.textContent = points
+        
+        if (points === cardArray.length/2) {
+            resultDisplay.textContent = ""
+            document.querySelector("#points").textContent = "Congratulations! You've found all matches!"
+        }
+    }
     createBoard() 
+
+    console.log(localStorage.playerName)   
 })
