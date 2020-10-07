@@ -118,3 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log(localStorage.playerName)   
 })
+
+document.getElementById("myForm").onclick = function() {
+    location.reload()
+ };

@@ -4,7 +4,7 @@ object {
     height: 80px;
     margin-top: 0px;
 }
-.buto {
+button {
     display: flex;
     font-family: 'Lobster', cursive;
     font-stretch: wider;
