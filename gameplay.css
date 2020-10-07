@@ -1,12 +1,8 @@
-header {
-    background-color: blue;
+
+object {
     width: 100%;
-    height: 50px;
-}
-h1 {
-    text-align: center;
-    margin-top: 0%;
-    margin-bottom: 15%;
+    height: 80px;
+    margin-top: 0px;
 }
 button {
     color: whitesmoke;
@@ -15,57 +11,78 @@ button {
 }
 button, #timer {
     display: inline-block;
-    margin-left: 30px;
+    margin-left: 5%;
     margin-right: 35%;
 }
 .container {
     display: flex;
     flex-wrap: wrap;
-    height: 200px;
-    width: 400px;
-}
-
-.item{
-    width: 100px;
-    height: 600px;
-    background-color: grey;
-    margin-left: -90px;
-    margin-right: 0px;
+    flex-direction: column;
+    column-width: 120px;
+    height: 300px;
+    width: 600px;
+    margin-left: 35%;
+    margin-top: 60px;
+    margin-right: 20%;
     margin-bottom: 20px;
-    margin-top: 0px;
-    flex-wrap: wrap;
-    position: fixed;
-    
-} 
+    justify-content: center;
+    align-items: center;
+
+}
+body {
+    background-image: url(https://image.freepik.com/free-vector/halftone-white-background_115579-724.jpg);
+}
 #player, #points {
     display: inline-block;
-    margin-left: 22%;
-    margin-right: -90px;
-    margin-top: 4px;
+    margin-left: 35%;
+    margin-top: 14px;
+    margin-right: -190px;
+}
+#player {
+    float: left;
 }
 .card-img{
     height: 100px;
     width: 100px;
 }
 
-.card{
-    display: inline-block;
-    height: 150px;
-    width: 160px;
-    margin-top: 20px;
+img{
+    display: flex;
+    height: 100px;
+    width: 100px;
+    margin-top: 5px;
     border: 3px solid #73AD21;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
     background-color: aliceblue;
-    position: relative;
-    padding-top: 50px;
-    padding-bottom: -40px;
-    padding-left: 60px;
+    padding-top: auto;
+    padding-bottom: auto;
+    padding-left: auto;
+    flex-flow: column;
+          
 }
 footer {
-    background-color: lightskyblue;
+    background-color: blue;
     width: 100%;
-    height: 115px;
-    text-align: right;
-    padding-top: 85px;
-} 
+    height: 90px;
+    margin-top: 50px;
+
+}
+a {
+    display: inline-flex;
+    font-family: 'Lobster', cursive;
+    font-stretch: wider;
+    color: blue;
+    width: 180px;
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 15%;
+    border: white;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 30px;
+    font-size: 16pt;
+    background-color: white;
+    justify-content: center;
+}
