@@ -1,6 +1,12 @@
+// Temporary solution to get the difficuly level
+let gameMode= {
+    level: "normal",
+    cards: 16
+}
+
+
 // This will import the player name from front-page
 //import {playerName} from "./front-page.js"
-console.log("fffffffffff")
 //console.log(playerName)
 
 
@@ -8,49 +14,28 @@ console.log("fffffffffff")
 // loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
 document.addEventListener("DOMContentLoaded", function () {
 
-    // This is the array of cards:
-    const cardArray = [
-        {
-            name: "Cat1",
-            img: "./pictures/kat1.jpg",
-            img2: "./pictures/backside.jpg"
-        },
-        {
-            name: "Cat1",
-            img: "./pictures/kat1.jpg",
-            img2: "./pictures/backside.jpg"
-        },
-        {
-            name: "Cat2",
-            img: "./pictures/kat2.jpg",
-            img2: "./pictures/backside.jpg"
-        },
-        {
-            name: "Cat2",
-            img: "./pictures/kat2.jpg",
-            img2: "./pictures/backside.jpg"
-        },
-        {
-            name: "Cat3",
-            img: "./pictures/kat3.jpg",
-            img2: "./pictures/backside.jpg"
-        },
-        {
-            name: "Cat3",
-            img: "./pictures/kat3.jpg",
-            img2: "./pictures/backside.jpg"
-        },
-        {
-            name: "Cat4",
-            img: "./pictures/kat4.jpg",
-            img2: "./pictures/backside.jpg"
-        },
-        {
-            name: "Cat4",
-            img: "./pictures/kat4.jpg",
-            img2: "./pictures/backside.jpg"
-        }
-    ]
+
+// This will create the array of cards
+// Easy: 4 cards, and set of "easy" cards, ex: easyx.jpg
+// Normal: 16 cards, and set of "normal" cards, ex: normalx.jpg
+// Hard: xx cards, and set of "hard" cards, ex: hardx.jpg
+// gameMode is set by the front-page button
+
+let cardArray = []
+
+for (i=1; i < (gameMode.cards+1); i++){
+    cardArray.push({
+        name: `card${i}`,
+        image: `./pictures/${gameMode.level}Pics/${gameMode.level}${i}.jpg`
+    })
+}
+
+// This will duplicate the cards
+cardArray = cardArray.reduce(function (res, current, index, array) {
+    return res.concat([current, current]);
+}, []);
+
+
 
     // This will randomize the array of objects
     cardArray.sort(() => 0.5 - Math.random())
@@ -65,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var points = 0
 
     function createBoard() {
-        for (let i = 0; i < cardArray.length; i++) {
+        for (let i = 0; i < (gameMode.cards*2); i++) {
             var card = document.createElement("img")
             card.setAttribute("src", "./pictures/backside.jpg")
             card.setAttribute("id", i)
@@ -76,18 +61,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    //let numOfcard = 6
-    //let difficultyLevel = "easy"
-
     //Flip the cards
     function flipCard() {
         var cardId = this.getAttribute("id")
         cardsChosen.push(cardArray[cardId].name)
         cardsChosenId.push(cardId)
-        this.setAttribute("src", cardArray[cardId].img)
+        this.setAttribute("src", cardArray[cardId].image)
+        
+        console.log(cardArray[cardId].image)
+        
         if (cardsChosen.length === 2){
              //this one gives it a slight delay so it doesn't happen instantly
              setTimeout(checkForMatch, 500)
+             
         }
     }
     

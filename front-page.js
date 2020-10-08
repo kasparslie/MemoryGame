@@ -1,20 +1,35 @@
-let buttonTobeClicked = document.getElementById("startBtn")
+let startButton = document.getElementById("startBtn")
 let inputBox = document.getElementById("playerName")
 
-//function dataToStore () {
-buttonTobeClicked.addEventListener("click", function(){
+
+startButton.addEventListener("click", function () {
     console.log("button has been pressed")
     let playerName
-    playerName = inputBox.value
-    localStorage.playerName = inputBox.value
+    playerName = localStorage.playerName = inputBox.value
+    
     console.log(`Player name is: ${playerName}`)
 })
-//}
 
-// dataToStore ()
+   // This is the difficulty level selection
+//    let difficultyBtn = document.getElementByClassName("difficultyBtn")
 
-// const playerName = dataToStore()
+//    difficultyBtn.addEventListener("click", function () {
+//     console.log("difficulty button has been pressed")
+//     let difficultyLevel = {
+//         difficulty: difficultyBtn.value,
+//         cards: difficultyBtn.Id
+//     }
 
-// export {playerName}
+//     localStorage.difficultyLevel = difficultyLevel
 
-//export const playerName="wheatever"
+//         console.log(`Difficulty name is: ${difficultyLevel}`)
+// })
+
+//    switch
+
+
+//    localStorage.difficulty =
+//    {
+//        level: whatever,
+//        cards: 7
+//    }
