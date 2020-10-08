@@ -1,4 +1,12 @@
 
+@media screen and (max-width:360px) 
+and (max-width: 736px) {
+    .view {
+        width: 360px;
+        height: 700px;
+        margin:auto;
+}
+}
 
 object {
     width: 100%;

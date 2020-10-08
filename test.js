@@ -1,9 +1,20 @@
 const randomPics = []
 
-let gameModecards = 8
-
-for (i=1; i < gameModecards; i++) {
-
-
-    
+for (i=1;i<18;i++) {
+    randomPics.push(i)
 }
+
+console.log(randomPics)
+
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+shuffleArray(randomPics)
+console.log(randomPics)
