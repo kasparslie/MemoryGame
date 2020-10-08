@@ -104,3 +104,7 @@ cardArray = cardArray.reduce(function (res, current, index, array) {
 
     console.log(localStorage.playerName)   
 })
+
+document.getElementById("myForm").onclick = function() {
+    location.reload()
+ };

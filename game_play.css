@@ -5,14 +5,30 @@ object {
     margin-top: 0px;
 }
 button {
-    color: whitesmoke;
-    background-color: grey;
-    text-align: center;
+    display: flex;
+    font-family: 'Lobster', cursive;
+    font-stretch: wider;
+    color: blue;
+    width: 180px;
+    margin-top: 30px;
+    margin-left: 2%;
+    border: white;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 30px;
+    font-size: 16pt;
+    background-color: white;
+    justify-content: center;
 }
-button, #timer {
-    display: inline-block;
+#timer, #player, #points {
+    display: inline-flex;
+    padding-left: 1%;
     margin-left: 5%;
-    margin-right: 35%;
+  
+}
+#points {
+    float: left;
+    margin-left: 38%;
 }
 .container {
     display: flex;
@@ -27,19 +43,9 @@ button, #timer {
     margin-bottom: 20px;
     justify-content: center;
     align-items: center;
-
 }
 body {
     background-image: url(https://image.freepik.com/free-vector/halftone-white-background_115579-724.jpg);
-}
-#player, #points {
-    display: inline-block;
-    margin-left: 35%;
-    margin-top: 14px;
-    margin-right: -190px;
-}
-#player {
-    float: left;
 }
 .card-img{
     height: 100px;
@@ -68,15 +74,13 @@ footer {
     margin-top: 50px;
 
 }
-a {
+.end1 {
     display: inline-flex;
     font-family: 'Lobster', cursive;
     font-stretch: wider;
     color: blue;
     width: 180px;
     margin-top: 30px;
-    padding-left: 20px;
-    padding-right: 20px;
     margin-left: 15%;
     border: white;
     border-width: 2px;

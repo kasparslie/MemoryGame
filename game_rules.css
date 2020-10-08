@@ -5,51 +5,11 @@ object {
 body {
     background-image: url(https://image.freepik.com/free-vector/halftone-white-background_115579-724.jpg);
 }
-.LI-profile-badge {
-    display: inline-block;
-    width: 300px;
-    height: 100%;
-    margin-top: 15px;
-}
 p, h1, h2 {
     font-family: 'Lobster', cursive;
     margin-left: 5%;
     margin-right: 20%;
 }
-.card, .card-body {
-    background-color: white;
-    margin-bottom: 20px;
-   font-family: 'Lobster', cursive;
-   padding-bottom: 5px;
-   display: flex;
-   flex-direction: column;
-}
-.card-body {
-    text-align: center;
-    }
-img {
-    margin-left: 10px;
-    width: 200px;
-    height: 200px;
-    padding-left: 30px;
-    padding-top: 10px;
-}
-.card {
-    display: inline-flex;
-    margin-left: 5%;
-}
-section {
-    display: inline;
-}
-.imgcard1 {
-    font-size: 16pt;
-}
-.name1 {
-    font-family: 'Lobster', cursive;  
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
 footer {
     background-color: blue;
     width: 100%;
