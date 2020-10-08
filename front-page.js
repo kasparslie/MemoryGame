@@ -1,35 +1,50 @@
-let startButton = document.getElementById("startBtn")
+let startButton1 = document.getElementById("startBtn1")
+let startButton2 = document.getElementById("startBtn2")
+let startButton3 = document.getElementById("startBtn3")
 let inputBox = document.getElementById("playerName")
 
+let playerName, chosenLevel, chosenCards, chosenTime
 
-startButton.addEventListener("click", function () {
-    console.log("button has been pressed")
-    let playerName
-    playerName = localStorage.playerName = inputBox.value
-    
-    console.log(`Player name is: ${playerName}`)
+// This is the difficulty level selection
+
+startButton1.addEventListener("click", function () {
+
+    chosenLevel = localStorage.chosenLevel = "easy"
+    chosenCards = localStorage.chosenCards = 4
+    chosenTime = localStorage.chosenTime = 30
+
+    if (inputBox.value === "") {
+        playerName = localStorage.playerName = "John Doe"
+    }
+    else if (inputBox.value != "") {
+        playerName = localStorage.playerName = inputBox.value
+    }
 })
 
-   // This is the difficulty level selection
-//    let difficultyBtn = document.getElementByClassName("difficultyBtn")
+startButton2.addEventListener("click", function () {
 
-//    difficultyBtn.addEventListener("click", function () {
-//     console.log("difficulty button has been pressed")
-//     let difficultyLevel = {
-//         difficulty: difficultyBtn.value,
-//         cards: difficultyBtn.Id
-//     }
+    chosenLevel = localStorage.chosenLevel = "normal"
+    chosenCards = localStorage.chosenCards = 8
+    chosenTime = localStorage.chosenTime = 20
 
-//     localStorage.difficultyLevel = difficultyLevel
+    if (inputBox.value === "") {
+        playerName = localStorage.playerName = "John Doe"
+    }
+    else if (inputBox.value != "") {
+        playerName = localStorage.playerName = inputBox.value
+    }
+})
 
-//         console.log(`Difficulty name is: ${difficultyLevel}`)
-// })
+startButton3.addEventListener("click", function () {
 
-//    switch
+    chosenLevel = localStorage.chosenLevel = "hard"
+    chosenCards = localStorage.chosenCards = 16
+    chosenTime = localStorage.chosenTime = 18
 
-
-//    localStorage.difficulty =
-//    {
-//        level: whatever,
-//        cards: 7
-//    }
+    if (inputBox.value === "") {
+        playerName = localStorage.playerName = "John Doe"
+    }
+    else if (inputBox.value != "") {
+        playerName = localStorage.playerName = inputBox.value
+    }
+})

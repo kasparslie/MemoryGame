@@ -1,11 +1,9 @@
-// console.log(Date.)
+const randomPics = []
 
-    //var today = new Date()
-    //console.log(today.)
+let gameModecards = 8
+
+for (i=1; i < gameModecards; i++) {
 
 
-let timeNow = new Date().getTime();
-
-let timeFuture = new Date().getTime() + 3000
-
-console.log(timeFuture - timeNow)
+    
+}
