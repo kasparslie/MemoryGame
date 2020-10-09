@@ -8,24 +8,38 @@ document.addEventListener("DOMContentLoaded", function () {
     let gameMode = {
         level: localStorage.chosenLevel,
         cards: parseInt(localStorage.chosenCards),
-        time: localStorage.chosenTime
+        time: localStorage.chosenTime,
+        set: parseInt(localStorage.chosenSet)
     }
 
-
     // This will create the array of cards
-    // Easy: 4 cards, and set of "easy" cards, ex: easyx.jpg
-    // Normal: 11 cards, and set of "normal" cards, ex: normalx.jpg
-    // Hard: 16 cards, and set of "hard" cards, ex: hardx.jpg
+    // Easy:   Player will have 8 cards in total
+    //         Set of cards is 4 cards
+    //         Picture name is easyx.jpg
+    // Normal: Player will have 16 cards in total
+    //         Set of cards is 14 cards
+    //         Picture name is easyx.jpg
+    // Hard:   Player will have 25 cards in total
+    //         Set of cards is 16 cards
+    //         Picture name is easyx.jpg
 
     let cardArray = []
 
-    for (let i = 1; i < (gameMode.cards) + 1; i++) {
+    for (let i = 1; i < (gameMode.set) + 1; i++) {
         cardArray.push({
             name: `card${i}`,
-            image: `./pictures/${gameMode.level}Pics/${gameMode.level}${i}.jpg`
+            image: `./pictures/${gameMode.level}Pics/${gameMode.level}${i}.jpg`,
+            clicked: false
         })
-
     }
+
+    // This will randomize order of the array
+    cardArray = cardArray.sort(() => Math.random() - 0.5)
+    // This will reduce the array to match the maximum numbers of cards to play with
+    cardArray.length = gameMode.cards
+
+
+
 
     // This will duplicate the cards
 
@@ -60,16 +74,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // This will flip the card when clicked
-
     function flipCard() {
-
         let cardId = this.getAttribute("id")
         cardsChosen.push(cardArray[cardId].name)
         cardsChosenId.push(cardId)
         this.setAttribute("src", cardArray[cardId].image)
+        cardArray[cardId].clicked = true
+
+        // if (cardsChosen.length === 1){
+        //     setTimeout(document.getElementById(cardId).removeEventListener("click", flipCard), 5000)            
+        // }
         if (cardsChosen.length === 2) {
             //this one gives it a slight delay so it doesn't happen instantly
             setTimeout(checkForMatch, 350)
+            document.getElementById(cardId).addEventListener("click", flipCard);
         }
     }
 
@@ -82,19 +100,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
 
-        if (cardsChosen[0] === cardsChosen[1]) {
-            points += 1
 
+        if (cardsChosen[0] === cardsChosen[1] && optionOneId != optionTwoId) {
+            points += 1
             // On match, prevent the player from clicking the cards again
             // to do this we disable the addeventlistener on the two cards
             document.getElementById(optionOneId).removeEventListener("click", flipCard);
             document.getElementById(optionTwoId).removeEventListener("click", flipCard);
             document.getElementById(optionOneId).style.filter = "brightness(50%)";
-            document.getElementById(optionTwoId).style.filter = "brightness(50%)"
-
-        } else {
+            document.getElementById(optionTwoId).style.filter = "brightness(50%)";
+        }
+        else {
             cards[optionOneId].setAttribute("src", "pictures/backside.jpg")
             cards[optionTwoId].setAttribute("src", "pictures/backside.jpg")
+            console.log(optionTwoId)
         }
         //this resets both arrays (resets the turn)
         cardsChosen = []
@@ -102,23 +121,44 @@ document.addEventListener("DOMContentLoaded", function () {
         resultDisplay.textContent = points
 
         if (points === (gameMode.cards)) {
+            //---------------------------------------
+            // This will create the array of cards
+            // Easy: 4 cards, and set of "easy" cards, ex: easyx.jpg
+            //       The set is 4 cards in total
+            // Normal: 11 cards, and set of "normal" cards, ex: normalx.jpg
+            //       The normal set is 14 cards in total
+            // Hard: 16 cards, and set of "hard" cards, ex: hardx.jpg
+            //       The hard set is 16 cards in total
+
+            // let cardArray = []
+
+            // for (let i = 1; i < (gameMode.cards) + 1; i++) {
+            //     cardArray.push({
+            //         name: `card${i}`,
+            //         image: `./pictures/${gameMode.level}Pics/${gameMode.level}${i}.jpg`
+            //     })
+            // }
+            //---------------------------------------
             resultDisplay.textContent = ""
             document.querySelector("#points").textContent = "Congratulations! You've found all matches!"
-            document.getElementById('timer').innerHTML = `asdasds`;
         }
     }
 
 
-// This is the restart button, will refresh the webpage
+    // This is the restart button, will refresh the webpage
     document.getElementById("myForm").onclick = function () {
         location.reload()
     };
 
-// This is the timer
+    // This is the timer
     setInterval(function () {
         let result = (gameMode.time = gameMode.time - 1)
 
-        if (result > 9) {
+
+        if (points === (gameMode.cards)) {
+            document.getElementById('timer').textContent = `You won!`;
+        }
+        else if (result > 9) {
             document.getElementById('timer').innerHTML = `00:${result}`;
         }
         else if ((result < 10) && (result > 0)) {
