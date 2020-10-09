@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (points === (gameMode.cards)) {
             resultDisplay.textContent = ""
             document.querySelector("#points").textContent = "Congratulations! You've found all matches!"
+            document.getElementById('timer').innerHTML = `asdasds`;
         }
     }
 
