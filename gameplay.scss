@@ -1,3 +1,17 @@
+@keyframes rotate-vert-left {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+      -webkit-transform-origin: left;
+              transform-origin: left;
+    }
+    100% {
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+      -webkit-transform-origin: left;
+              transform-origin: left;
+    }
+  }
 
 @media screen and (max-width:360px) 
 and (max-width: 736px) {
@@ -17,17 +31,16 @@ button {
     display: flex;
     font-family: 'Lobster', cursive;
     font-stretch: wider;
+    font-size: 14pt;
     color: blue;
-    width: 180px;
-    margin-top: 30px;
-    margin-left: 2%;
-    border: white;
-    border-width: 2px;
-    border-style: solid;
+    height: 30px;
     border-radius: 30px;
-    font-size: 16pt;
+    width: 150px;
     background-color: white;
-    justify-content: center;
+    border-color: white;
+
+
+ 
 }
 #timer, #player, #points {
     display: inline-flex;
@@ -40,27 +53,24 @@ button {
     margin-left: 38%;
 }
 .container {
-    display: inline-flex;
+    width: 1000px;
+    display: grid;
     column-width: 120px;
     height: auto;
     width: auto;
-    flex-flow: row wrap;
-    align-items: flex-end;
-    justify-content: flex-start;
-    margin-left: 40vh;
-
- 
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    justify-content: center;
+    padding-right: 400px;
+    padding-left: 400px;
 
 }
 body {
     background-image: url(https://image.freepik.com/free-vector/halftone-white-background_115579-724.jpg);
 }
-.card-img{
-    height: 100px;
-    width: 100px;
-}
+
 
 img{
+    @include -webkit-keyframes;
     display: flex;
     height: 100px;
     width: 100px;
@@ -75,6 +85,25 @@ img{
     flex-flow: column;
           
 }
+.container {
+    animation-name: animi;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+@keyframes animi {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+      -webkit-transform-origin: left;
+              transform-origin: left;
+    }
+    100% {
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+      -webkit-transform-origin: left;
+              transform-origin: left;
+    }
+  }
 footer {
     background-color: blue;
     width: 100%;

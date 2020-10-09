@@ -1,3 +1,38 @@
+.flip-2-ver-right-fwd {
+  -webkit-animation: flip-2-ver-right-fwd 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: flip-2-ver-right-fwd 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+@-webkit-keyframes flip-2-ver-right-fwd {
+  0% {
+    -webkit-transform: translateX(0) translateZ(0) rotateY(0);
+    transform: translateX(0) translateZ(0) rotateY(0);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+  }
+  100% {
+    -webkit-transform: translateX(100%) translateZ(160px) rotateY(-180deg);
+    transform: translateX(100%) translateZ(160px) rotateY(-180deg);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+  }
+}
+
+@keyframes flip-2-ver-right-fwd {
+  0% {
+    -webkit-transform: translateX(0) translateZ(0) rotateY(0);
+    transform: translateX(0) translateZ(0) rotateY(0);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+  }
+  100% {
+    -webkit-transform: translateX(100%) translateZ(160px) rotateY(-180deg);
+    transform: translateX(100%) translateZ(160px) rotateY(-180deg);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+  }
+}
+
 @media screen and (max-width: 360px) and (max-width: 736px) {
   .view {
     width: 360px;
@@ -18,19 +53,13 @@ button {
   display: flex;
   font-family: 'Lobster', cursive;
   font-stretch: wider;
+  font-size: 14pt;
   color: blue;
-  width: 180px;
-  margin-top: 30px;
-  margin-left: 2%;
-  border: white;
-  border-width: 2px;
-  border-style: solid;
+  height: 30px;
   border-radius: 30px;
-  font-size: 16pt;
+  width: 150px;
   background-color: white;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  border-color: white;
 }
 
 #timer, #player, #points {
@@ -47,33 +76,46 @@ button {
 }
 
 .container {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  width: 1000px;
+  display: -ms-grid;
+  display: grid;
   -webkit-column-width: 120px;
           column-width: 120px;
   height: auto;
   width: auto;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  margin-left: 40vh;
+  -ms-grid-columns: (minmax(120px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-right: 400px;
+  padding-left: 400px;
+}
+
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 body {
   background-image: url(https://image.freepik.com/free-vector/halftone-white-background_115579-724.jpg);
-}
-
-.card-img {
-  height: 100px;
-  width: 100px;
 }
 
 img {
@@ -94,6 +136,28 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
+}
+
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 footer {
