@@ -38,27 +38,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // This will reduce the array to match the maximum numbers of cards to play with
     cardArray.length = gameMode.cards
 
-
-
-
     // This will duplicate the cards
-
     cardArray = cardArray.reduce(function (res, current) {
         return res.concat([current, current]);
     }, []);
 
-    // This will randomize the array of objects
-    cardArray.sort(() => 0.5 - Math.random())
-
 
     // This will create the board of cards
-
     const grid = document.querySelector(".container")
     const resultDisplay = document.querySelector("#result")
     let playerNameBox = document.querySelector("#player")
 
-    let cardsChosen = []
-    let cardsChosenId = []
     let points = 0
 
     function createBoard() {
@@ -72,9 +62,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    let cardsChosen = []
+    let cardsChosenId = []
 
     // This will flip the card when clicked
     function flipCard() {
+
         let cardId = this.getAttribute("id")
         cardsChosen.push(cardArray[cardId].name)
         cardsChosenId.push(cardId)
@@ -100,6 +93,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
 
+console.log(optionOneId)
+console.log(optionTwoId)
+
 
         if (cardsChosen[0] === cardsChosen[1] && optionOneId != optionTwoId) {
             points += 1
@@ -110,10 +106,16 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById(optionOneId).style.filter = "brightness(50%)";
             document.getElementById(optionTwoId).style.filter = "brightness(50%)";
         }
+        
+        // else if (cardsChosen[0] === cardsChosen[1] && optionOneId == optionTwoId){
+
+        // }
+
+
         else {
             cards[optionOneId].setAttribute("src", "pictures/backside.jpg")
             cards[optionTwoId].setAttribute("src", "pictures/backside.jpg")
-            console.log(optionTwoId)
+            
         }
         //this resets both arrays (resets the turn)
         cardsChosen = []
@@ -121,24 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resultDisplay.textContent = points
 
         if (points === (gameMode.cards)) {
-            //---------------------------------------
-            // This will create the array of cards
-            // Easy: 4 cards, and set of "easy" cards, ex: easyx.jpg
-            //       The set is 4 cards in total
-            // Normal: 11 cards, and set of "normal" cards, ex: normalx.jpg
-            //       The normal set is 14 cards in total
-            // Hard: 16 cards, and set of "hard" cards, ex: hardx.jpg
-            //       The hard set is 16 cards in total
 
-            // let cardArray = []
-
-            // for (let i = 1; i < (gameMode.cards) + 1; i++) {
-            //     cardArray.push({
-            //         name: `card${i}`,
-            //         image: `./pictures/${gameMode.level}Pics/${gameMode.level}${i}.jpg`
-            //     })
-            // }
-            //---------------------------------------
             resultDisplay.textContent = ""
             document.querySelector("#points").textContent = "Congratulations! You've found all matches!"
         }
