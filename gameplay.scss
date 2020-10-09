@@ -40,13 +40,13 @@ button {
     margin-left: 38%;
 }
 .container {
-    display: flex;
+    display: inline-flex;
     column-width: 120px;
     height: auto;
     width: auto;
     flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: flex-start;
     margin-left: 40vh;
 
  
