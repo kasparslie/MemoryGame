@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        console.log(result)
+        //console.log(result)
 
     }, 1000) //calling it every 0.5 second to do a count down
 
