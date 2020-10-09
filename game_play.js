@@ -43,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return res.concat([current, current]);
     }, []);
 
+    // This will randomize order of the array again???????
+    cardArray = cardArray.sort(() => Math.random() - 0.5)
+
 
     // This will create the board of cards
     const grid = document.querySelector(".container")
@@ -93,8 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
 
-console.log(optionOneId)
-console.log(optionTwoId)
+        console.log(optionOneId)
+        console.log(optionTwoId)
 
 
         if (cardsChosen[0] === cardsChosen[1] && optionOneId != optionTwoId) {
@@ -106,16 +109,17 @@ console.log(optionTwoId)
             document.getElementById(optionOneId).style.filter = "brightness(50%)";
             document.getElementById(optionTwoId).style.filter = "brightness(50%)";
         }
-        
-        // else if (cardsChosen[0] === cardsChosen[1] && optionOneId == optionTwoId){
 
+        // else if (cardsChosen[0] === cardsChosen[1] && optionOneId === optionTwoId) {
+        //     cardsChosenId = []
+        //     cardsChosen = []
+        //     checkForMatch()
         // }
-
 
         else {
             cards[optionOneId].setAttribute("src", "pictures/backside.jpg")
             cards[optionTwoId].setAttribute("src", "pictures/backside.jpg")
-            
+
         }
         //this resets both arrays (resets the turn)
         cardsChosen = []
